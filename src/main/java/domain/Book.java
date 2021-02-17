@@ -2,14 +2,14 @@ package domain;
 
 import java.time.LocalDate;
 
-public class Books {
+public class Book {
     private long id;
     private String title;
     private String authors;
     private String genre;
     private LocalDate publishingYear;
     private boolean borrowed;
-    private Readers readersId;
+    private Reader readerId;
     private LocalDate date;
 
     public long getId() {
@@ -56,8 +56,8 @@ public class Books {
         this.borrowed = borrowed;
     }
 
-    public Readers getReadersId() {
-        return readersId;
+    public Reader getReaderId() {
+        return readerId;
     }
 
 

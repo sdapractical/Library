@@ -1,6 +1,6 @@
 package domain;
 
-public class Readers {
+public class Reader {
 
     private long id;
     private String firstName;
