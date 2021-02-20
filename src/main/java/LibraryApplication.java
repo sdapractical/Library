@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.net.URL;
+import java.nio.file.Paths;
 
 public class LibraryApplication extends Application{
 
@@ -22,7 +23,7 @@ public class LibraryApplication extends Application{
                     event.consume();
                 });
 
-        URL path = getClass().getResource("src/main/java/ui/menu.fxml").toURI().toURL();
+        URL path = getClass().getResource("ui/menu.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(path);
 
         stage = (BorderPane) root;
