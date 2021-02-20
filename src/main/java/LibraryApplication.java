@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.net.URL;
-import java.nio.file.Paths;
 
 public class LibraryApplication extends Application{
 
@@ -20,7 +19,7 @@ public class LibraryApplication extends Application{
         window = primaryStage;
         window.setTitle("Library application");
         window.setOnCloseRequest(event -> {
-                    event.consume();
+                    window.close();
                 });
 
         URL path = getClass().getResource("ui/menu.fxml").toURI().toURL();
@@ -28,7 +27,7 @@ public class LibraryApplication extends Application{
 
         stage = (BorderPane) root;
 
-        Scene scene = new Scene(stage, 1500, 700);
+        Scene scene = new Scene(stage, 800, 500);
 
         window.setScene(scene);
         window.show();
