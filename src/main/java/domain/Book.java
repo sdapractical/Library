@@ -2,7 +2,6 @@ package domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 
 @Entity
@@ -29,13 +28,12 @@ public class Book {
     @Column(name = "borrowed")
     private boolean borrowed;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {
             CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH
     })
-    private List<Reader> readerList;
 
     @JoinColumn(name = "reader_id")
-    private Reader readerId;
+    private Reader reader;
 
     @Column(name = "dueDate")
     private LocalDate dueDate;
@@ -84,12 +82,12 @@ public class Book {
         this.borrowed = borrowed;
     }
 
-    public Reader getReaderId() {
-        return readerId;
+    public Reader getReader() {
+        return reader;
     }
 
-    public void setReaderId(Reader readerId) {
-        this.readerId = readerId;
+    public void setReaderId(Reader reader) {
+        this.reader = reader;
     }
 
     public LocalDate getDate() {
