@@ -1,16 +1,42 @@
 package domain;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+
+@Entity
+@Table(name = "book")
 public class Book {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "authors")
     private String authors;
+
+    @Column(name = "genre")
     private String genre;
+
+    @Column(name = "publishingYear")
     private LocalDate publishingYear;
+
+    @Column(name = "borrowed")
     private boolean borrowed;
-    private Reader readerId;
-    private LocalDate date;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {
+            CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH
+    })
+
+    @JoinColumn(name = "reader_id")
+    private Reader reader;
+
+    @Column(name = "dueDate")
+    private LocalDate dueDate;
 
     public long getId() {
         return id;
@@ -56,16 +82,19 @@ public class Book {
         this.borrowed = borrowed;
     }
 
-    public Reader getReaderId() {
-        return readerId;
+    public Reader getReader() {
+        return reader;
     }
 
+    public void setReaderId(Reader reader) {
+        this.reader = reader;
+    }
 
     public LocalDate getDate() {
-        return date;
+        return dueDate;
     }
 
     public void setDate(LocalDate date) {
-        this.date = date;
+        this.dueDate = date;
     }
 }
