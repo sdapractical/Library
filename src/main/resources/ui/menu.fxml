@@ -2,8 +2,10 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.MainController">
     <center>
         <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
             <tabs>
@@ -11,17 +13,33 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView layoutX="14.0" layoutY="14.0" prefHeight="322.0" prefWidth="758.0">
+                                <TableView fx:id="readerList" layoutX="14.0" layoutY="14.0" prefHeight="322.0" prefWidth="758.0">
                                     <columns>
                                         <TableColumn prefWidth="75.0" text="ID" />
-                                        <TableColumn prefWidth="150.0" text="First name" />
-                                        <TableColumn prefWidth="140.0" text="Last name" />
-                                        <TableColumn prefWidth="225.0" text="Mobile phone" />
-                                        <TableColumn prefWidth="167.0" text="Address" />
+                                        <TableColumn prefWidth="150.0" text="First name" >
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="firstName" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="140.0" text="Last name" >
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="lastName" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="225.0" text="Mobile phone" >
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="phoneNumber" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="167.0" text="Address" >
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="address" />
+                                            </cellValueFactory>
+                                        </TableColumn>
                                     </columns>
                                 </TableView>
-                                <Button layoutX="14.0" layoutY="364.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="93.0" text="Add reader" />
-                                <Button layoutX="133.0" layoutY="364.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="93.0" text="Delete reader" />
+                                <Button fx:id="addReaderButton" layoutX="14.0" layoutY="364.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="93.0" text="Add reader" />
+                                <Button  fx:id="deleteButton" layoutX="133.0" layoutY="364.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="93.0" text="Delete reader" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -30,20 +48,49 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView layoutX="14.0" layoutY="14.0" prefHeight="322.0" prefWidth="760.0">
+                                <TableView fx:id="bookList" layoutX="14.0" layoutY="14.0" prefHeight="322.0" prefWidth="760.0">
                                     <columns>
                                         <TableColumn prefWidth="39.0" text="ID" />
-                                        <TableColumn prefWidth="111.0" text="Title" />
-                                        <TableColumn prefWidth="75.0" text="Authors" />
-                                        <TableColumn prefWidth="100.0" text="Genre" />
-                                        <TableColumn prefWidth="146.0" text="Publishing year" />
-                                        <TableColumn prefWidth="101.0" text="Borrowed" />
-                                        <TableColumn prefWidth="77.0" text="Reader ID" />
-                                        <TableColumn prefWidth="109.0" text="Due date" />
+                                        <TableColumn prefWidth="111.0" text="Title" >
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="title" />
+                                        </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="75.0" text="Authors" >
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="author" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="100.0" text="Genre" >
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="genre" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="146.0" text="Publishing year" >
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="publishingYear" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="101.0" text="Borrowed" >
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="borrowed" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="77.0" text="Reader ID" >
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="reader_id" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="109.0" text="Due date" >
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="dueDate" />
+                                            </cellValueFactory>
+                                        </TableColumn>
                                     </columns>
                                 </TableView>
-                                <Button layoutX="14.0" layoutY="364.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="91.0" text="Add book" />
+                                <Button fx:id="addBookButton" layoutX="14.0" layoutY="364.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="91.0" text="Add book" />
                                 <Button layoutX="130.0" layoutY="364.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="91.0" text="Delete book" />
+                        <Button fx:id="markAsBorrowedButton" layoutX="246.0" layoutY="364.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="115.0" text="Mark as borrowed" />
                             </children></AnchorPane>
                     </content>
                 </Tab>

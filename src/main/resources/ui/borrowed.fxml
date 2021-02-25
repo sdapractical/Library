@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="171.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.MarkAsBorrowedController">
+   <children>
+      <Button fx:id="markAsBorrowedButton2" layoutX="23.0" layoutY="111.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="82.0" text="Mark" />
+      <Button fx:id="borrowedCancelButton2" layoutX="261.0" layoutY="111.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="82.0" text="Cancel" />
+      <DatePicker layoutX="138.0" layoutY="21.0" prefHeight="27.0" prefWidth="181.0" />
+      <Separator layoutY="86.0" prefHeight="6.0" prefWidth="365.0" />
+      <Label layoutX="53.0" layoutY="26.0" prefHeight="17.0" prefWidth="74.0" text="Today date" />
+   </children>
+</Pane>
