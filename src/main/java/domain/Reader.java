@@ -27,7 +27,7 @@ public class Reader {
     private String address;
 
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = {
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "readerId", cascade = {
             CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH
     })
     private List<Book> bookList;
@@ -72,4 +72,8 @@ public class Reader {
         return bookList;
     }
 
+    @Override
+    public String toString() {
+        return getFirstName();
+    }
 }

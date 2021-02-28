@@ -19,19 +19,25 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-    private final BookDao bookDao = DaoRepository.getBookDao();
-    private List<Book> allBooks;
-    private final ReaderDao readerDao = DaoRepository.getReaderDao();
+    private  final BookDao bookDao = DaoRepository.getBookDao();
 
+    private final ReaderDao readerDao = DaoRepository.getReaderDao();
+    private List<Book> allBooks;
 
     @FXML
     private Button addBookButton;
 
     @FXML
+    private Button deleteReaderButton;
+
+    @FXML
+    private Button deleteBookButton;
+
+    @FXML
     private Button addReaderButton;
 
     @FXML
-    private Button markAsBorrowedButton;
+    private Button UnmarkAsBorrowedButton;
 
     @FXML
     private TableView<Book> bookList;
@@ -39,42 +45,80 @@ public class MainController implements Initializable {
     @FXML
     private TableView<Reader> readerList;
 
+    @FXML
+    private Button handOutBook;
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-       /*allBooks = bookDao.getBooks();
-        bookList.getItems().addAll(allBooks);
-
+        Reader readers = new Reader();
         readerList.getItems().addAll(readerDao.getReaders());
+        allBooks = bookDao.getBooks();
+        bookList.getItems().addAll(bookDao.getBooks());
 
-        Book book = new Book();
-        bookDao.saveOrUpdate(book);
-        bookList.refresh();*/
+        deleteBookButton.setOnAction(event -> {
+            Book book = bookList.getSelectionModel().getSelectedItem();
+            bookDao.delete(book);
+            bookList.getItems().remove(book);
+            bookList.refresh();
 
-        addBookButton.setOnAction(event -> {
+                });
+
+            UnmarkAsBorrowedButton.setOnAction(event -> {
+                Book book = bookList.getSelectionModel().getSelectedItem();
+                    book.setBorrowed(false);
+                    book.setReaderId(null);
+                    book.setDate(null);
+
+                bookDao.saveOrUpdate(book);
+                bookList.refresh();
+
+
+            });
+            addBookButton.setOnAction(event -> {
+                try {
+                    LibraryApplication.setWindow(MenuEnum.ADD_BOOK);
+                    bookList.getItems().clear();
+                    bookList.getItems().addAll(Repository.getBooks());
+                    bookList.refresh();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            deleteReaderButton.setOnAction(event -> {
+                Reader reader = readerList.getSelectionModel().getSelectedItem();
+                readerDao.deleteReader(reader);
+                readerList.getItems().remove(reader);
+                readerList.refresh();
+            });
+
+            addReaderButton.setOnAction(event -> {
+                try {
+                    LibraryApplication.setWindow(MenuEnum.ADD_READER);
+                    readerList.getItems().clear();
+                    readerList.getItems().addAll(Repository.getReaders());
+                    readerList.refresh();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+
+
+        handOutBook.setOnAction(event -> {
             try {
-                LibraryApplication.setWindow(MenuEnum.ADD_BOOK);
-            }catch (IOException e){
+                LibraryApplication.setWindow(MenuEnum.HAND_OUT_BOOK);
+
+                Book book = bookList.getSelectionModel().getSelectedItem();
+                book.setBorrowed(true);
+                bookDao.saveOrUpdate(book);
+                bookList.refresh();
+
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
 
-        addReaderButton.setOnAction(event -> {
-            try {
-                LibraryApplication.setWindow(MenuEnum.ADD_READER);
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-        });
-
-        markAsBorrowedButton.setOnAction(event -> {
-            try {
-                LibraryApplication.setWindow(MenuEnum.MARK_AS_BORROWED);
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-        });
-
-    }
+        }
 }

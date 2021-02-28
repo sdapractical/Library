@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import ui.model.MenuEnum;
 import windows.AddBookWindow;
 import windows.AddReaderWindow;
-import windows.MarkAsBorrowed;
+import windows.HandOutBookWindow;
 
 import java.io.IOException;
 import java.net.URL;
@@ -61,10 +61,11 @@ public class LibraryApplication extends Application{
 
             }
 
-            case MARK_AS_BORROWED: {
-                MarkAsBorrowed.display("Borrowed");
+            case HAND_OUT_BOOK: {
+                HandOutBookWindow.display("Hand out a book");
                 break;
             }
+
             default: {
                 stage.setCenter(null);
             }

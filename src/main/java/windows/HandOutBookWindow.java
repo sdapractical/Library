@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
 
-public class MarkAsBorrowed{
+public class HandOutBookWindow {
     public static void display (String title) {
 
         Stage window = new Stage();
@@ -20,7 +20,7 @@ public class MarkAsBorrowed{
         Parent root = null;
 
         try {
-            URL path = Paths.get("src/main/resources/ui/borrowed.fxml").toUri().toURL();
+            URL path = Paths.get("src/main/resources/ui/handOutBook.fxml").toUri().toURL();
             root = FXMLLoader.load(path);
         } catch (IOException e) {
             e.printStackTrace();
@@ -32,8 +32,6 @@ public class MarkAsBorrowed{
 
 
         window.setScene(scene);
-        window.show();
+        window.showAndWait();
     }
-
-
 }

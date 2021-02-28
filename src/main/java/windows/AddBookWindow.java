@@ -32,6 +32,6 @@ public class AddBookWindow {
 
 
         window.setScene(scene);
-        window.show();
+        window.showAndWait();
     }
 }

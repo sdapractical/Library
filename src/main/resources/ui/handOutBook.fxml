@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="567.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.HandOutBookController">
+   <children>
+      <TableView fx:id="readerList2" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="290.0">
+        <columns>
+          <TableColumn prefWidth="38.0" text="ID">
+              <cellValueFactory>
+                  <PropertyValueFactory property="id" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="114.0" text="Last name">
+              <cellValueFactory>
+                  <PropertyValueFactory property="lastName" />
+              </cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="137.0" text="First name">
+               <cellValueFactory>
+                  <PropertyValueFactory property="firstName" />
+               </cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <Label layoutX="387.0" layoutY="40.0" prefHeight="17.0" prefWidth="63.0" text="Due date" />
+      <DatePicker fx:id="dueDate" layoutX="332.0" layoutY="69.0" />
+      <Button fx:id="okButton" layoutX="448.0" layoutY="197.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="105.0" text="Ok" />
+   </children>
+</Pane>

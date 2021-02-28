@@ -35,23 +35,22 @@ public class AddReaderController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Stage window = new Stage();
-        Reader reader = new Reader();
-        reader.setFirstName(firstName.getText());
-        reader.setLastName(lastName.getText());
-        reader.setMobilePhone(phoneNumber.hashCode());
-        reader.setAddress(address.getText());
 
         addReaderButton2.setOnAction(event -> {
             messageLabel.setText("");
-
+            Reader reader = new Reader();
+            reader.setFirstName(firstName.getText());
+            reader.setLastName(lastName.getText());
+            reader.setMobilePhone(phoneNumber.hashCode());
+            reader.setAddress(address.getText());
             if (firstName.getText().isEmpty()) {
-                messageLabel.setText("Please enter your name.");
+                messageLabel.setText("Please enter reader name.");
                 return;
-            }else {
-                readerDao.saveOrUpdate(reader);
-                window.close();
             }
+            readerDao.saveOrUpdate(reader);
+            Stage stage = (Stage) addReaderButton2.getScene().getWindow();
+            stage.close();
+
         });
 
         cancelButton2.setOnAction(event -> {
@@ -59,25 +58,6 @@ public class AddReaderController implements Initializable {
             stage.close();
         });
 
-        /*addReaderButton.setOnAction(event ->{
-            String firstNameText = firstName.getText();
-
-            firstNameText = firstNameText.substring(0, 1).toUpperCase(Locale.ROOT) +
-                    firstNameText.substring(1).toLowerCase();
-
-            Reader reader = new Reader();
-            reader.setFirstName(firstNameText);
-
-            try {
-                readerDao.saveOrUpdate(reader);
-
-            }catch (ConstraintViolationException e){
-
-            }
-
-
-        });
-*/
 
     }
 }

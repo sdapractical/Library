@@ -32,6 +32,6 @@ public class AddReaderWindow {
 
 
         window.setScene(scene);
-        window.show();
+        window.showAndWait();
     }
 }

@@ -20,9 +20,9 @@ CREATE TABLE IF NOT EXISTS `book` (
     `title`   VARCHAR(255) NOT NULL DEFAULT 'Unknown',
     `authors` VARCHAR(200) NULL     DEFAULT NULL,
     `genre`   VARCHAR(50)  NULL     DEFAULT NULL,
-    `publishingYear` DATE  NULL     DEFAULT NULL,
+    `publishingYear` VARCHAR (20) NULL     DEFAULT NULL,
     `borrowed` BOOLEAN     DEFAULT FALSE,
-    `reader_id` BIGINT(20) NULL,
+    `reader` BIGINT(20) NULL,
     `dueDate` DATE,
     PRIMARY KEY (`id`),
     CONSTRAINT `fk_reader`
