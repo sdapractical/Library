@@ -7,7 +7,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "book")
 public class Book {
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,20 +22,28 @@ public class Book {
     private String genre;
 
     @Column(name = "publishingYear")
-    private LocalDate publishingYear;
+    private String publishingYear;
 
     @Column(name = "borrowed")
     private boolean borrowed;
+
+    @Column(name = "dueDate")
+    private LocalDate dueDate;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {
             CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH
     })
 
-    @JoinColumn(name = "reader_id")
-    private Reader reader;
+    @JoinColumn(name = "readerId")
+    private Reader readerId;
 
-    @Column(name = "dueDate")
-    private LocalDate dueDate;
+
+    public Reader getReaderId() {
+        return readerId;
+    }
+    public void setReaderId(Reader readerId) {
+        this.readerId = readerId;
+    }
 
     public long getId() {
         return id;
@@ -66,11 +73,11 @@ public class Book {
         this.genre = genre;
     }
 
-    public LocalDate getPublishingYear() {
+    public String getPublishingYear() {
         return publishingYear;
     }
 
-    public void setPublishingYear(LocalDate publishingYear) {
+    public void setPublishingYear(String publishingYear) {
         this.publishingYear = publishingYear;
     }
 
@@ -82,19 +89,15 @@ public class Book {
         this.borrowed = borrowed;
     }
 
-    public Reader getReader() {
-        return reader;
-    }
 
-    public void setReaderId(Reader reader) {
-        this.reader = reader;
-    }
 
-    public LocalDate getDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
     public void setDate(LocalDate date) {
         this.dueDate = date;
     }
+
+
 }
