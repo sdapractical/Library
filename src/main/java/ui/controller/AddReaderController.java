@@ -43,6 +43,7 @@ public class AddReaderController implements Initializable {
             reader.setLastName(lastName.getText());
             reader.setMobilePhone(phoneNumber.hashCode());
             reader.setAddress(address.getText());
+
             if (firstName.getText().isEmpty()) {
                 messageLabel.setText("Please enter reader name.");
                 return;
