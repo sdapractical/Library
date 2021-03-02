@@ -39,7 +39,6 @@ public class AddBookController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         addBookButton2.setOnAction(event -> {
-            Reader reader = new Reader();
             Book book = new Book();
             book.setTitle(title.getText());
             book.setAuthors(author.getText());
@@ -47,7 +46,6 @@ public class AddBookController implements Initializable {
             book.setPublishingYear(publishingYear.getText());
             book.setReaderId(null);
             messageLabel.setText("");
-
             if (author.getText().isEmpty()) {
                 messageLabel.setText("Please enter an author.");
                 return;

@@ -109,10 +109,9 @@ public class MainController implements Initializable {
         handOutBook.setOnAction(event -> {
             try {
                 LibraryApplication.setWindow(MenuEnum.HAND_OUT_BOOK);
-
                 Book book = bookList.getSelectionModel().getSelectedItem();
-                book.setBorrowed(true);
-                bookDao.saveOrUpdate(book);
+                    Repository.setCurrentBookToHandOut(book);
+
                 bookList.refresh();
 
             } catch (IOException e) {

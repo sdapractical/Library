@@ -2,7 +2,6 @@ package ui.controller;
 
 import dao.BookDao;
 import dao.DaoRepository;
-import dao.ReaderDao;
 import domain.Book;
 import domain.Reader;
 import javafx.fxml.FXML;
@@ -16,8 +15,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HandOutBookController implements Initializable {
-    private final ReaderDao readerDao = DaoRepository.getReaderDao();
     private final BookDao bookDao = DaoRepository.getBookDao();
+    Book book = new Book();
+
 
 
     @FXML
@@ -32,12 +32,16 @@ public class HandOutBookController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        readerList2.getItems().addAll(readerDao.getReaders());
+        readerList2.getItems().addAll(Repository.getReaders());
 
         okButton.setOnAction(event -> {
-            Book book = new Book();
+           Reader reader =  readerList2.getSelectionModel().getSelectedItem();
+           Book book = Repository.getCurrentBookToHandOut();
             book.setDate(dueDate.getValue());
+            book.setBorrowed(true);
+            book.setReaderId(reader);
             bookDao.saveOrUpdate(book);
+
             Stage stage = (Stage) okButton.getScene().getWindow();
             stage.close();
 

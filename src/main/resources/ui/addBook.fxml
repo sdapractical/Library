@@ -3,10 +3,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane accessibleText="1971" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.AddBookController">
+<Pane accessibleText="1971" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="519.0" style="-fx-background-color: #C6C6C6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.AddBookController">
    <children>
-      <Button fx:id="addBookButton2" layoutX="14.0" layoutY="292.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="78.0" text="Add book" />
-      <Button fx:id="cancelButton2" layoutX="423.0" layoutY="292.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="78.0" text="Cancel" />
+      <Button fx:id="addBookButton2" layoutX="14.0" layoutY="292.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="78.0" style="-fx-background-color: #88F17E; -fx-background-radius: 20; -fx-border-radius: 20;" text="Add book" />
+      <Button fx:id="cancelButton2" layoutX="423.0" layoutY="292.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="78.0" style="-fx-background-color: #FC6060; -fx-background-radius: 20; -fx-border-radius: 20;" text="Cancel" />
       <TextField fx:id="title" layoutX="194.0" layoutY="35.0" prefHeight="25.0" prefWidth="227.0" />
       <TextField fx:id="author" layoutX="194.0" layoutY="75.0" prefHeight="25.0" prefWidth="227.0" />
       <TextField fx:id="genre" layoutX="194.0" layoutY="109.0" prefHeight="25.0" prefWidth="227.0" />

@@ -3,10 +3,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.AddReaderController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="435.0" style="-fx-background-color: #C6C6C6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.AddReaderController">
    <children>
-      <Button fx:id="addReaderButton2" layoutX="21.0" layoutY="248.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="75.0" text="Add" />
-      <Button fx:id="cancelButton2" layoutX="339.0" layoutY="248.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="75.0" text="Cancel" />
+      <Button fx:id="addReaderButton2" layoutX="21.0" layoutY="248.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="75.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #88F17E;" text="Add" />
+      <Button fx:id="cancelButton2" layoutX="339.0" layoutY="248.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="75.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: FC6060;" text="Cancel" />
       <TextField fx:id="firstName" layoutX="173.0" layoutY="35.0" prefWidth="211.0" />
       <TextField fx:id="lastName" layoutX="173.0" layoutY="73.0" prefHeight="25.0" prefWidth="211.0" />
       <TextField fx:id="phoneNumber" layoutX="173.0" layoutY="109.0" prefHeight="25.0" prefWidth="211.0" />

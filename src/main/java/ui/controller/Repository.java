@@ -14,11 +14,15 @@ public class Repository {
     private static List<Book> books;
     private static BookDao bookDao = new BookDaoImpl();
     private static ReaderDao readerDao = new ReaderDaoImpl();
+    private static Book currentBookToHandOut;
 
     static {
         readers =readerDao.getReaders();
         books =bookDao.getBooks();
+
     }
+
+
 
     public static List<Reader> getReaders(){
         return readers;
@@ -27,4 +31,14 @@ public class Repository {
     public static List<Book> getBooks(){
         return books;
     }
+
+
+    public static void setCurrentBookToHandOut(Book currentBookToHandOut) {
+        Repository.currentBookToHandOut = currentBookToHandOut;
+    }
+
+    public static Book getCurrentBookToHandOut() {
+        return currentBookToHandOut;
+    }
+
 }
