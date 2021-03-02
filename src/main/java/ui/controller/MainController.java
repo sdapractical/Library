@@ -52,7 +52,6 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Reader readers = new Reader();
         readerList.getItems().addAll(readerDao.getReaders());
         allBooks = bookDao.getBooks();
         bookList.getItems().addAll(bookDao.getBooks());
@@ -108,10 +107,9 @@ public class MainController implements Initializable {
 
         handOutBook.setOnAction(event -> {
             try {
-                LibraryApplication.setWindow(MenuEnum.HAND_OUT_BOOK);
                 Book book = bookList.getSelectionModel().getSelectedItem();
-                    Repository.setCurrentBookToHandOut(book);
-
+                Repository.setCurrentBookToHandOut(book);
+                LibraryApplication.setWindow(MenuEnum.HAND_OUT_BOOK);
                 bookList.refresh();
 
             } catch (IOException e) {

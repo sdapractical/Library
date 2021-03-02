@@ -76,4 +76,9 @@ public class Reader {
     public String toString() {
         return getFirstName();
     }
+
+    @Override
+    public int hashCode() {
+        return getMobilePhone();
+    }
 }

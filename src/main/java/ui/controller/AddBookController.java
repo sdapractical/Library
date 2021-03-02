@@ -51,10 +51,6 @@ public class AddBookController implements Initializable {
                 return;
             }
                 bookDao.saveOrUpdate(book);
-                title.setText("");
-                author.setText("");
-                genre.setText("");
-                publishingYear.setText("");
             Stage stage = (Stage) addBookButton2.getScene().getWindow();
             stage.close();
 
